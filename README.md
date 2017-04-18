@@ -24,6 +24,13 @@ For Moodle 3.2, the theme will inherit from **Boost**.
     cd Moodle/theme
     cookiecutter gh:liip-elearning/moodle-theme-template
 
+Once generated, you will need to add this line to your config-dev.php:
+
+    $CFG->devel_custom_additional_head = '<link rel="stylesheet" type="text/css" href="../theme/{{cookiecutter.theme_id}}/build/stylesheets/compiled.css">';
+
+This allows Browsersync to inject the Sass while working on frontend.
+
+
 ### Moodle 3.1
 For Moodle 3.1 the theme will inherit from **Bootstrap**.
 Please be sure you have the **Bootstrap** Theme installed. You can find it here: [Boostrap Moodle Theme](https://github.com/bmbrands/theme_bootstrap)

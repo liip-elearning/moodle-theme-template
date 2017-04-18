@@ -56,9 +56,9 @@ function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
     }
 
     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    $pre = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/pre.scss');
+    $pre = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/settings.scss');
     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
-    $post = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/post.scss');
+    $post = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/{{cookiecutter.theme_id}}.scss');
 
     // Combine them together.
     return $pre . "\n" . $scss . "\n" . $post;
