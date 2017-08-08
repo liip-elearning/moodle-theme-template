@@ -23,13 +23,15 @@ gulp.task('watch', ['build'], function() {
  * Write sourcemaps in dev mode
  */
 gulp.task('sass', function() {
-  return gulp.src(['scss/settings.scss', '../boost/scss/moodle.scss', './scss/{{cookiecutter.theme_id}}.scss'])
-    .pipe($.concat('compiled.scss'))
-    .pipe($.sourcemaps.init())
-    .pipe(
-      $.sass({
-        outputStyle: 'compressed',
-        includePaths: ['../boost/scss']
+
+    return gulp.src('./scss/{{cookiecutter.theme_id}}.scss')
+      .pipe($.concat('compiled.scss'))
+      .pipe(gulp.dest('build/test'))
+      .pipe($.sourcemaps.init())
+      .pipe(
+        $.sass({
+          outputStyle: 'compressed',
+          includePaths: ['./scss']
         })
         .on('error', function(error) {
           browserSync.sockets.emit('fullscreen:message', {
@@ -41,11 +43,11 @@ gulp.task('sass', function() {
         .on('data', function(data) {
           browserSync.sockets.emit('fullscreen:message:clear');
         })
-    )
-    .pipe($.autoprefixer({cascade: false}))
-    .pipe($.sourcemaps.write('.'))
-    .pipe(gulp.dest('build/stylesheets'))
-    .pipe(reload({stream: true}));
+      )
+      .pipe($.autoprefixer({cascade: false}))
+      .pipe($.sourcemaps.write('.'))
+      .pipe(gulp.dest('build/stylesheets'))
+      .pipe(reload({stream: true}));
 });
 
 
