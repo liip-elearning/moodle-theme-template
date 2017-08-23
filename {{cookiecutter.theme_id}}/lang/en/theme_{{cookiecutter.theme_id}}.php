@@ -28,6 +28,6 @@ $string['pluginname'] = '{{cookiecutter.theme_name}}';
 $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 
-$string['choosereadme'] = '{{cookiecutter.theme_ame}}';
+$string['choosereadme'] = '{{cookiecutter.theme_name}}';
 
 $string['copyright'] = 'Copyright 2017 onwards Liip <http://www.liip.ch>';
