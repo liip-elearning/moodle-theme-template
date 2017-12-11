@@ -18,8 +18,8 @@ theme_name    | For textual use, no specific format required  | L//P
 theme_version | YYYYMMDD or YYYYMMDDVV (VV as version number) | 2017032100
 theme_release | V.V                                           | 1.5
 
-### Moodle 3.2
-For Moodle 3.2, the theme will inherit from **Boost**.
+### Moodle 3.2+
+From Moodle 3.2 on, the theme will inherit from **Boost**.
 
     cd Moodle/theme
     cookiecutter gh:liip-elearning/moodle-theme-template
