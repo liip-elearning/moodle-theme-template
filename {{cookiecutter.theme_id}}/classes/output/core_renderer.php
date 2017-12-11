@@ -23,7 +23,6 @@ defined('MOODLE_INTERNAL') || die;
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * @package    theme_{{cookiecutter.theme_id}}
- * @copyright  2017 Liip AG, www.liip.ch
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 

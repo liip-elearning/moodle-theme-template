@@ -1,7 +1,6 @@
 {
   "name": "{{cookiecutter.theme_id}}",
   "version": "{{cookiecutter.theme_release}}.0",
-  "author": "Liip AG, www.liip.ch",
   "license": "GPL-3.0",
   "devDependencies": {
     "browser-sync": "^2.18.8",
