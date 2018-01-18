@@ -17,8 +17,6 @@
  * {{cookiecutter.theme_name}} theme settings.
  *
  * @package    theme_{{cookiecutter.theme_id}}
- * @copyright  2016 Damyon Wiese
- * @copyright   2017 Liip AG <https://www.liip.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -185,7 +183,7 @@ $font-family-base:       $font-family-sans-serif;
 // Pixel value used to responsively scale all typography. Applied to the `<html>` element.
 $font-size-root: 14px;
 
-$font-size-base: 1rem;
+$font-size-base: 1;
 $font-size-lg:   1.25rem;
 $font-size-sm:   .875rem;
 $font-size-xs:   .75rem;

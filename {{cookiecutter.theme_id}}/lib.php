@@ -18,8 +18,6 @@
  * {{cookiecutter.theme_name}} theme background callbacks.
  *
  * @package    theme_{{cookiecutter.theme_id}}
- * @copyright  2016 Damyon Wiese
- * @copyright   2017 Liip AG <https://www.liip.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -56,7 +54,7 @@ function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
     }
 
     // Pre CSS - this is loaded AFTER any prescss from the setting but before the main scss.
-    $pre = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/settings.scss');
+    $pre = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/_settings.scss');
     // Post CSS - this is loaded AFTER the main scss but before the extra scss from the setting.
     $post = file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/{{cookiecutter.theme_id}}.scss');
 

@@ -18,8 +18,6 @@
  * {{cookiecutter.theme_name}} theme version file.
  *
  * @package    theme_{{cookiecutter.theme_id}}
- * @copyright  2016 Damyon Wiese
- * @copyright   2017 Liip AG <https://www.liip.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
