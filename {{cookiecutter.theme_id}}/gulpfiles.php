@@ -31,8 +31,14 @@ require('../../config.php');
 
 $pix  = optional_param('pix', '', PARAM_TEXT);
 $font = optional_param('font', '', PARAM_TEXT);
+$v    = optional_param('v', '', PARAM_TEXT);
 
 $theme = theme_config::load('{{cookiecutter.theme_id}}');
+
+if ($v) {
+    // Cope with eventual versioning.
+    $v = '?v=' . $v;
+}
 
 // From lib/outputlib.php's post_process.php.
 
@@ -44,7 +50,7 @@ if (preg_match('/([a-z0-9_]+\|)?([^\]]+)/', $pix, $match)) {
     $imageurl = $theme->image_url($imagename, $component)->out(false);
     // We do not need full url because the image.php is always in the same dir.
     $imageurl = preg_replace('|^http.?://[^/]+|', '', $imageurl);
-    redirect($imageurl);
+    redirect($imageurl . $v);
 }
 
 // Resolve font locations.
@@ -54,7 +60,7 @@ if (preg_match('/([a-z0-9_]+\|)?([^\]]+)/', $font, $match)) {
     $fonturl = $theme->font_url($fontname, $component)->out(false);
     // We do not need full url because the font.php is always in the same dir.
     $fonturl = preg_replace('|^http.?://[^/]+|', '', $fonturl);
-    redirect($fonturl);
+    redirect($fonturl . $v);
 }
 
 header('HTTP/1.0 404 Not found');
