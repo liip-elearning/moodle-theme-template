@@ -117,3 +117,19 @@ function theme_{{cookiecutter.theme_id}}_update_settings_images($settingname) {
     theme_reset_all_caches();
 }
 
+/**
+ * If we're designing the theme, empty the CSS styles output by styles_debug.php
+ * Conditions:
+ *    - $CFG->designermode = true;
+ *    - $CFG->devel_custom_additional_head contains 'build/stylesheets/compiled.css'
+ *
+ * @param $style Input CSS
+ */
+function theme_{{cookiecutter.theme_id}}_csspostprocess($css) {
+    global $CFG;
+
+    if (strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false) {
+        // If we're designing the theme and we have an overlay for gulp, empty all CSS.
+        return "head.see-compiled-css-by-gulp { color: white; }";
+    }
+}
