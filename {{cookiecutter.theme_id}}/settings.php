@@ -60,7 +60,7 @@ if ($ADMIN->fulltree) {
 
     // Preset files setting.
     $name = 'theme_{{cookiecutter.theme_id}}/presetfiles';
-    $title = get_string('presetfiles','theme_{{cookiecutter.theme_id}}');
+    $title = get_string('presetfiles', 'theme_{{cookiecutter.theme_id}}');
     $description = get_string('presetfiles_desc', 'theme_{{cookiecutter.theme_id}}');
 
     $setting = new admin_setting_configstoredfile($name, $title, $description, 'preset', 0,
