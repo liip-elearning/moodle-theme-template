@@ -82,7 +82,6 @@ function theme_{{cookiecutter.theme_id}}_update_settings_images($settingname) {
     // This is the component name the setting is stored in.
     $component = 'theme_{{cookiecutter.theme_id}}';
 
-
     // This is the value of the admin setting which is the filename of the uploaded file.
     $filename = get_config($component, $settingname);
     // We extract the file extension because we want to preserve it.
@@ -117,3 +116,20 @@ function theme_{{cookiecutter.theme_id}}_update_settings_images($settingname) {
     theme_reset_all_caches();
 }
 
+/**
+ * If we're designing the theme, empty the CSS styles output by styles_debug.php
+ * Conditions:
+ *    - Debugging level is at least DEBUG_DEVELOPER
+ *    - $CFG->devel_custom_additional_head contains 'build/stylesheets/compiled.css'
+ *
+ * @param $style Input CSS
+ */
+function theme_{{cookiecutter.theme_id}}_csspostprocess($css) {
+    global $CFG;
+
+    if (debugging('', DEBUG_DEVELOPER) && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false) {
+        // If we're designing the theme and we have an overlay for gulp, empty all CSS.
+        return "head.see-compiled-css-by-gulp { color: white; }";
+    }
+    return $css;
+}

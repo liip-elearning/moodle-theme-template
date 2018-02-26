@@ -40,7 +40,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $output = parent::standard_head_html();
 
         // Allow custom head content while in development.
-        if (DEBUG_DEVELOPER && !empty($CFG->devel_custom_additional_head) ) {
+        if (debugging('', DEBUG_DEVELOPER) && !empty($CFG->devel_custom_additional_head) ) {
             $output .= $CFG->devel_custom_additional_head;
         }
 
