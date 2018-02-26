@@ -15,7 +15,7 @@ gulp.task('watch', ['build'], function() {
     open: false,
   });
 
-  gulp.watch('templates/**/*.mustache')
+  gulp.watch('templates/**/*.mustache', reload);
   gulp.watch('scss/**/*.scss', ['sass']);
 });
 
