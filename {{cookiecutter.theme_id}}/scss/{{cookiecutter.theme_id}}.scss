@@ -14,14 +14,13 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * {{cookiecutter.theme_name}} theme post SCSS.
+ * {{cookiecutter.theme_name}} theme SCSS.
  *
  * @package    theme_{{cookiecutter.theme_id}}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// Include your scss files hire
-// @import "moodle/bocks";
-
 @import "settings";
-@import "../../boost/scss/moodle";
+
+// Import default Boost Preset
+@import "../../boost/scss/preset/default";

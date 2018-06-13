@@ -33,7 +33,7 @@ gulp.task('sass', function() {
     .pipe(
       $.sass({
         outputStyle: 'compressed',
-        includePaths: ['./scss']
+        includePaths: ['./scss', '../boost/scss']
       })
       .on('error', function(error) {
         browserSync.sockets.emit('fullscreen:message', {
