@@ -44,8 +44,8 @@ if ($v) {
 }
 
 // Add Browsersync URL prefix.
-if (DEBUG_DEVELOPER && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false) {
-    $prefix = $CFG->wwwroot . ':3000';
+if (DEBUG_DEVELOPER && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false && $CFG->browsersyncurl) {
+    $CFG->wwwroot = $CFG->browsersyncurl;
 }
 
 // From lib/outputlib.php's post_process.php.
@@ -58,7 +58,7 @@ if (preg_match('/([a-z0-9_]+\|)?([^\]]+)/', $pix, $match)) {
     $imageurl = $theme->image_url($imagename, $component)->out(false);
     // We do not need full url because the image.php is always in the same dir.
     $imageurl = preg_replace('|^http.?://[^/]+|', '', $imageurl);
-    redirect($prefix . $imageurl . $postfix);
+    redirect($imageurl . $postfix);
 }
 
 // Resolve font locations.
@@ -68,7 +68,7 @@ if (preg_match('/([a-z0-9_]+\|)?([^\]]+)/', $font, $match)) {
     $fonturl = $theme->font_url($fontname, $component)->out(false);
     // We do not need full url because the font.php is always in the same dir.
     $fonturl = preg_replace('|^http.?://[^/]+|', '', $fonturl);
-    redirect($prefix . $fonturl . $postfix);
+    redirect($fonturl . $postfix);
 }
 
 header('HTTP/1.0 404 Not found');
