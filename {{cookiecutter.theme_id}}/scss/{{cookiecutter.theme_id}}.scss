@@ -20,7 +20,33 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-@import "settings";
+/*----------------------------------------*\
+  THEME SETTINGS
+\*----------------------------------------*/
 
-// Import default Boost Preset
+// Bootstrap functions, the purpose is to be able
+// to override Bootstrap setting/variables in the setting Syllabus folder.
+@import "../../boost/scss/bootstrap/functions";
+
+// Theme settings for Boost
+// This is a copy from the boost `scss/preset/default`
+// without Boostrap, FontAwesome, Moodle Core import.
+@import 'settings/boost';
+
+// Theme settings in generic Bootstrap
+@import 'settings/bootstrap';
+
+// Boost import for Bootstrap, FontAwesome and Moodle Core
 @import "../../boost/scss/preset/plain";
+
+/*----------------------------------------*\
+  MOODLE COMPONENTS - Override
+\*----------------------------------------*/
+
+// @import 'moodle/course';
+
+/*----------------------------------------*\
+  THEME COMPONENTS
+\*----------------------------------------*/
+
+// @import 'components/nav-drawer';
