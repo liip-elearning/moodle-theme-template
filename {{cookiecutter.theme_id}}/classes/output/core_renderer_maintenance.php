@@ -14,28 +14,36 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
+namespace theme_{{cookiecutter.theme_id}}\output;
+
+
+defined('MOODLE_INTERNAL') || die;
+
 /**
- * {{cookiecutter.theme_name}} theme config.
+ * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
  * @package    theme_{{cookiecutter.theme_id}}
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-// This line protects the file from being accessed by a URL directly.
-defined('MOODLE_INTERNAL') || die();
+class core_renderer_maintenance extends \theme_boost\output\core_renderer_maintenance {
 
-// The first setting we need is the name of the theme.
-$THEME->name = '{{cookiecutter.theme_id}}';
+    /**
+     * The standard tags that should be included in the <head> tag
+     * including a meta description for the front page
+     *
+     * @return string HTML fragment.
+     */
+    public function standard_head_html() {
+        global $SITE, $PAGE, $CFG;
 
-$THEME->sheets = [];
-$THEME->editor_sheets = [];
-$THEME->parents = ['boost'];
-$THEME->enable_dock = false;
-$THEME->yuicssmodules = array();
-$THEME->rendererfactory = 'theme_overridden_renderer_factory';
-$THEME->requiredblocks = '';
-$THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
-$THEME->scss = function($theme) {
-    return theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme);
-};
-$THEME->csspostprocess = 'theme_{{cookiecutter.theme_id}}_csspostprocess';
+        $output = parent::standard_head_html();
+
+        // Allow custom head content while in development.
+        if (debugging('', DEBUG_DEVELOPER) && !empty($CFG->devel_custom_additional_head) ) {
+            $output .= $CFG->devel_custom_additional_head;
+        }
+
+        return $output;
+    }
+}

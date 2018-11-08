@@ -48,7 +48,7 @@ function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
 function theme_{{cookiecutter.theme_id}}_csspostprocess($css) {
     global $CFG;
 
-    if (debugging('', DEBUG_DEVELOPER) && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false) {
+    if (debugging('', DEBUG_DEVELOPER) && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false) {
         // If we're designing the theme and we have an overlay for gulp, empty all CSS.
         return "head.see-compiled-css-by-gulp { color: white; }";
     }

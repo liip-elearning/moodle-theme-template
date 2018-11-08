@@ -44,7 +44,7 @@ if ($v) {
 }
 
 // Add Browsersync URL prefix.
-if (DEBUG_DEVELOPER && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/compiled.css') !== false && $CFG->browsersyncurl) {
+if (DEBUG_DEVELOPER && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false && $CFG->browsersyncurl) {
     $CFG->wwwroot = $CFG->browsersyncurl;
 }
 
