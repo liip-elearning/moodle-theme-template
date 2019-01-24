@@ -38,4 +38,3 @@ $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 $THEME->scss = function($theme) {
     return theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme);
 };
-$THEME->csspostprocess = 'theme_{{cookiecutter.theme_id}}_csspostprocess';
