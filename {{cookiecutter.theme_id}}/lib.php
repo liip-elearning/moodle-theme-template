@@ -32,25 +32,11 @@ defined('MOODLE_INTERNAL') || die();
  */
 function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
     global $CFG;
-
-    return file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/{{cookiecutter.theme_id}}.scss');
-}
-
-
-/**
- * If we're designing the theme, empty the CSS styles output by styles_debug.php
- * Conditions:
- *    - Debugging level is at least DEBUG_DEVELOPER
- *    - $CFG->devel_custom_additional_head contains 'build/stylesheets/compiled.css'
- *
- * @param $style Input CSS
- */
-function theme_{{cookiecutter.theme_id}}_csspostprocess($css) {
-    global $CFG;
-
+    
     if (debugging('', DEBUG_DEVELOPER) && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false) {
         // If we're designing the theme and we have an overlay for gulp, empty all CSS.
         return "head.see-compiled-css-by-gulp { color: white; }";
     }
-    return $css;
+
+    return file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/{{cookiecutter.theme_id}}.scss');
 }
