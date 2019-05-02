@@ -32,8 +32,9 @@ defined('MOODLE_INTERNAL') || die();
  */
 function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
     global $CFG;
-    
-    if (debugging('', DEBUG_DEVELOPER) && strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false) {
+
+    if (debugging('', DEBUG_DEVELOPER) && isset($CFG->devel_custom_additional_head) &&
+        strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false) {
         // If we're designing the theme and we have an overlay for gulp, empty all CSS.
         return "head.see-compiled-css-by-gulp { color: white; }";
     }
