@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-class core_renderer_maintenance extends \theme_boost\output\core_renderer_maintenance {
+class core_renderer_maintenance extends \core_renderer_maintenance {
 
     /**
      * The standard tags that should be included in the <head> tag
