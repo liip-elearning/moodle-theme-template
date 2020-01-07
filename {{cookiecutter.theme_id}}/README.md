@@ -7,15 +7,12 @@ It has been generated with cookiecutter base on the [Moodle Theme Template](http
 
 ### Moodle configuration
 
-For _DEVELOPMENT_, the best is to configure Moodle as follows:
+For _DEVELOPMENT_, the best is to use Liip eLearning's [moodle-docker](https://github.com/liip-elearning/moodle-docker/) with :
 
 ```
-$CFG->theme = '{{cookiecutter.theme_id}}';
-$CFG->devel_custom_additional_head = '<link rel="stylesheet" type="text/css" href="/theme/{{cookiecutter.theme_id}}/build/stylesheets/compiled.css" />';
-$CFG->browsersyncurl = 'http://192.168.122.17:3000';
+export MOODLE_CODENAME=mdl-test
+export MOODLE_DOCKER_THEMEDEVEL={{cookiecutter.theme_id}}
+moodle-compose up -d
 ```
 
-### Launch Browsersync
-
-    npm install
-    gulp
+Then access https://browsersync.mdl-test.docker.test/
