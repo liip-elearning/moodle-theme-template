@@ -24,10 +24,10 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->version = {{cookiecutter.theme_version}};
-$plugin->requires = 2016112900.00;
+$plugin->requires = 2018051700.00;
 $plugin->component = 'theme_{{cookiecutter.theme_id}}';
 $plugin->dependencies = [
-    'theme_boost' => 2016102100
+    'theme_boost' => 2018051700
 ];
 $plugin->maturity = MATURITY_STABLE;
 $plugin->release = {{cookiecutter.theme_release}};
