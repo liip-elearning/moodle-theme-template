@@ -35,8 +35,8 @@ function theme_{{cookiecutter.theme_id}}_get_main_scss_content($theme) {
 
     if (debugging('', DEBUG_DEVELOPER) && isset($CFG->devel_custom_additional_head) &&
         strpos($CFG->devel_custom_additional_head, 'build/stylesheets/') !== false) {
-        // If we're designing the theme and we have an overlay for gulp, empty all CSS.
-        return "head.see-compiled-css-by-gulp { color: white; }";
+        // If we're designing the theme and are building the CSS in JS; empty all CSS.
+        return "head.see-compiled-css-by-js { color: white; }";
     }
 
     return file_get_contents($CFG->dirroot . '/theme/{{cookiecutter.theme_id}}/scss/{{cookiecutter.theme_id}}.scss');
