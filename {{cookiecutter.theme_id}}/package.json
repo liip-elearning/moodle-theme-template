@@ -3,13 +3,16 @@
   "version": "{{cookiecutter.theme_release}}.0",
   "license": "GPL-3.0",
   "devDependencies": {
-    "browser-sync": "^2.18.8",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-replace": "^0.6.1",
-    "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^2.6.0"
+    "browser-sync": "^2.26.7",
+    "onchange": "^6.1.0",
+    "node-sass": "^4.13.0",
+    "concurrently": "^5.0.2",
+    "replace": "^1.1.3"
+  },
+  "scripts": {
+    "sass": "node-sass --source-map true --output-style compressed --include-path ./scss --include-path ../boost/scss -o build/stylesheets/ scss/{{cookiecutter.theme_id}}.scss build/stylesheets/compiled.css && replace --silent '\\[\\[([^:]*):([^\\]]+)\\]\\](\\?(#iefix&)?(v=[\\d.]+))?' \"/theme/{{cookiecutter.theme_id}}/themedevelfiles.php?\\$1=\\$2&\\$5\\$4\" build/stylesheets/compiled.css",
+    "watch": "onchange -i 'templates/**/*.mustache' 'scss/**/*' -- npm run sass",
+    "browser-sync": "browser-sync start --proxy ${MOODLE_DOCKER_WEBSERVER_INTERNAL} --socket.domain ${MOODLE_DOCKER_BROWSERSYNC_WEBHOST} --no-open --files build/stylesheets/",
+    "start": "concurrently --kill-others \"npm run watch\" \"npm run sass; npm run browser-sync\" "
   }
 }
